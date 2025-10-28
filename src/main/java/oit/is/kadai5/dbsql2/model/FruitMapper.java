@@ -25,4 +25,12 @@ public interface FruitMapper {
    */
   @Delete("DELETE FROM FRUIT WHERE ID =#{id}")
   boolean deleteById(int id);
+
+  /**
+   * 入力されたFruit Beanの値でDBを更新する {}内のフィールド名指定時には大文字小文字を間違えないようにすること （カラム名はOK）
+   *
+   * @param fruit
+   */
+  @Update("UPDATE FRUIT SET NAME=#{name}, PRICE=#{price} WHERE ID = #{id}")
+  void updateById(Fruit fruit);
 }
