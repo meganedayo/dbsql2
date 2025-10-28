@@ -54,11 +54,11 @@ public class Sample3AuthConfiguration {
     // user1/p@ss,user2/p@ss,admin/p@ss
 
     UserDetails tanuki = User.withUsername("tanuki")
-        .password("{bcrypt}$2y$05$Q//zM7bB5OF7y3mCkoccx.FlLT5Hq6Y2szs/wHLEp/yQugrEHY8a2").roles("USER").build();
+        .password("{bcrypt}$2y$05$Q//zM7bB5OF7y3mCkoccx.FlLT5Hq6Y2szs/wHLEp/yQugrEHY8a2").roles("CUSTOMER").build();
     UserDetails kitune = User.withUsername("kitune")
-        .password("{bcrypt}$2y$05$mpPEva8HoaceYP1LKkV72.lmaxrG6Zux1LjWao8hhX17sjw7RiNuO").roles("USER").build();
+        .password("{bcrypt}$2y$05$mpPEva8HoaceYP1LKkV72.lmaxrG6Zux1LjWao8hhX17sjw7RiNuO").roles("CUSTOMER").build();
         UserDetails araiguma = User.withUsername("araiguma")
-        .password("{bcrypt}$2y$05$GtxoRH1hQwQmgTgtFCxEwONOc5lasqd9reZa.hH1Qz0XdVkrkfLri").roles("USER").build();
+        .password("{bcrypt}$2y$05$GtxoRH1hQwQmgTgtFCxEwONOc5lasqd9reZa.hH1Qz0XdVkrkfLri").roles("SELLER").build();
     UserDetails admin = User.withUsername("admin")
         .password("{bcrypt}$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e").roles("ADMIN").build();
     // customer1 p@ss
