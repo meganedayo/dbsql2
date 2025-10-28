@@ -12,7 +12,6 @@
   <a href="/logout">ログアウト</a>
 
   <h2>Online Fruits Shop</h2>
-
   <a href="/sample5/step2">果物一覧</a>
   <div th:if="${fruits2}">
     <table border="1">
@@ -23,7 +22,7 @@
         <th>処理</th>
       </thead>
       <!--CUSTOMERロールがある場合のみ表示される-->
-      <tbody>
+      <tbody sec:authorize="hasRole('ROLE_CUSTOMER')">
         <!--クエリパラメータでIDを渡して購入処理を実行する．@{}はthymeleafのLink式というLinkを生成する際の書き方-->
         <tr th:each="fruit,stat:${fruits2}">
           <td>[[${stat.index}]]</td>
@@ -32,7 +31,19 @@
           <td><a th:href="@{/sample5/step3(id=${fruit.id})}">購入</a></td>
         </tr>
       </tbody>
+      <!--SELLERロールがある場合のみ表示される-->
+      <tbody sec:authorize="hasRole('ROLE_SELLER')">
+        <tr th:each="fruit,stat:${fruits2}">
+          <td>[[${stat.index}]]</td>
+          <td>[[${fruit.name}]]</td>
+          <td>[[${fruit.price}]]</td>
+          <td><a th:href="@{/sample5/step4(id=${fruit.id})}">編集</a></td>
+        </tr>
+      </tbody>
     </table>
+  </div>
+  <div th:if="${fruit3}">
+    [[${fruit3.name}]]を[[${fruit3.price}]]円で購入しました
   </div>
 </body>
 
